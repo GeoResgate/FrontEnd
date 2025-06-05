@@ -20,11 +20,11 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
     <div
       className={`relative min-h-screen w-full flex items-center justify-center bg-cover bg-no-repeat bg-center transition-all duration-500 ${
         step === 0
-          ? "bg-[url('/BackgroundVermelho.svg')]"
+          ? "bg-[url('/BackgroundVermelho')]"
           : "bg-[url('/BackgroundPreto.svg')]"
       } p-4`}
     >
-      <div className="relative w-full max-w-[1250px] aspect-[4/3] flex flex-col items-center justify-center">
+      <div className="relative w-full max-w-[720px] aspect-[4/3] flex items-center justify-center">
         <Image
           src={step === 0 ? Termo1 : Termo2}
           alt="Termo de Uso"
@@ -33,14 +33,14 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
           priority
         />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-white text-center">
-          <div className="w-full max-w-md">
+        <div className="absolute inset-0 px-10 py-8 text-white text-center flex flex-col justify-between">
+          <div className="max-w-[560px] w-full mx-auto">
             {step === 0 ? (
               <>
-                <p className="text-base sm:text-lg font-light mb-3">
+                <p className="text-sm sm:text-base font-light mb-3">
                   Antes de prosseguir, <span className="font-bold">leia com atenção:</span>
                 </p>
-                <p className="text-sm sm:text-base font-light mb-4">
+                <p className="text-xs sm:text-sm font-light mb-4">
                   Este sistema é exclusivo para situações de emergência real, especialmente em casos de enchentes,
                   deslizamentos ou isolamento em áreas de risco.
                 </p>
@@ -57,7 +57,7 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
               </>
             ) : (
               <>
-                <p className="text-base sm:text-lg font-light mb-3">
+                <p className="text-sm sm:text-base font-light mb-3">
                   Ao prosseguir com o cadastro, <span className="font-bold">você declara estar ciente de que:</span>
                 </p>
                 <ul className="text-left text-xs sm:text-sm space-y-2 font-medium">
@@ -71,7 +71,9 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
                 </p>
               </>
             )}
+          </div>
 
+          <div className="max-w-[200px] w-full mx-auto">
             <button
               onClick={nextStep}
               className="mt-6 w-full bg-white/90 hover:bg-white text-gray-800 font-bold py-2 px-4 rounded-md transition font-poppins"
