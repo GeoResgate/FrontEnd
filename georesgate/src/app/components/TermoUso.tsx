@@ -114,7 +114,8 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
         <div className="w-full max-w-[220px] mx-auto mt-10">
           <button
             onClick={nextStep}
-            className="w-full bg-white/90 hover:bg-white text-gray-800 font-bold py-3 px-4 rounded-md transition text-[16px] sm:text-[18px] md:text-[20px]"
+            className="w-full h-[50px] bg-[url('/FundoBotao.png')] bg-contain bg-center bg-no-repeat text-white text-[18px] font-bold"
+            style={{ backgroundColor: "transparent", border: "none", outline: "none", color: "white" }}
           >
             {step === 0 ? "Próximo" : "Eu concordo"}
           </button>
