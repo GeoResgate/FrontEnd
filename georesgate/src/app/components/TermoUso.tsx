@@ -3,14 +3,18 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function TermoUso({ onContinue }: { onContinue: () => void }) {
+type Props = {
+  onContinue: () => void;
+};
+
+export default function TermoUso({ onContinue }: Props) {
   const [step, setStep] = useState(0);
 
   const nextStep = () => {
     if (step === 0) {
       setStep(1);
     } else {
-      onContinue();
+      onContinue(); // agora vem da prop
     }
   };
 
@@ -55,12 +59,10 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
             <p className="text-[30px] sm:text-[22px] md:text-[26px] font-bold mt-10">
               Antes de prosseguir, leia com atenção:
             </p>
-
             <p className="text-[20px] sm:text-[18px] md:text-[20px] font-light leading-relaxed mt-5 mb-5 max-w-[660px] mx-auto">
               Este sistema é exclusivo para situações de emergência real, especialmente em casos de enchentes,
               deslizamentos ou isolamento em áreas de risco.
             </p>
-
             <ul className="space-y-6 text-left px-4 font-medium text-[19px] sm:text-[17px] md:text-[19px] leading-relaxed max-w-[780px] mx-auto">
               <li className="flex gap-2 items-start">
                 <span className="text-[26px] font-bold leading-[1.2]">•</span>
@@ -81,28 +83,20 @@ export default function TermoUso({ onContinue }: { onContinue: () => void }) {
             <p className="text-[25px] sm:text-[22px] md:text-[26px] font-bold mt-2">
               Ao prosseguir com o cadastro, você declara estar ciente de que:
             </p>
-
             <ul className="space-y-6 text-left px-10 font-medium text-[19px] sm:text-[17px] md:text-[19px] leading-relaxed max-w-[580px] mx-auto">
               <li className="flex gap-2 items-start">
                 <span className="text-[26px] font-bold leading-[1.2]">•</span>
-                <span>
-                  O botão deve ser utilizado somente em caso de risco de vida;
-                </span>
+                <span>O botão deve ser utilizado somente em caso de risco de vida;</span>
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-[26px] font-bold leading-[1.2]">•</span>
-                <span>
-                  Informações falsas ou alertas indevidos poderão ser investigados;
-                </span>
+                <span>Informações falsas ou alertas indevidos poderão ser investigados;</span>
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-[26px] font-bold leading-[1.2]">•</span>
-                <span>
-                  O uso consciente do sistema pode salvar vidas.
-                </span>
+                <span>O uso consciente do sistema pode salvar vidas.</span>
               </li>
             </ul>
-
             <p className="text-[17px] sm:text-[15px] md:text-[17px] font-light text-gray-200 px-4 leading-snug mt-3 max-w-[660px] mx-auto">
               Ao prosseguir com o cadastro, o usuário concorda com estes termos de uso e reconhece sua
               responsabilidade sobre a veracidade das informações prestadas e o uso consciente da plataforma.

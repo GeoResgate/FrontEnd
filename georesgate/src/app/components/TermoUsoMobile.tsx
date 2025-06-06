@@ -3,11 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function TermoUsoMobile({ onContinue }: { onContinue: () => void }) {
+type Props = {
+  onContinue: () => void;
+};
+
+export default function TermoUsoMobile({ onContinue }: Props) {
   const [step, setStep] = useState(0);
 
   const nextStep = () => {
-    step === 0 ? setStep(1) : onContinue();
+    if (step === 0) {
+      setStep(1);
+    } else {
+      onContinue(); // agora vindo do page.tsx
+    }
   };
 
   const backgroundBase = step === 0 ? "/FundoVermelhoTermo.svg" : "/FundoPretoTermo.svg";
