@@ -53,3 +53,12 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 1s ease-out forwards;
 }
+
+.botao-fundo {
+  background-image: url('/FundoBotao.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
